@@ -10,7 +10,7 @@
         All
     </a>
 
-    <!-- Loop through Categories question 10 -->
+    <!-- Loop through Categories question 10  & 11 -->
     @foreach (var category in Model.Categories)
     {
         <a asp-controller="Product" asp-action="List" asp-route-id="@category.CategoryID"
@@ -33,6 +33,7 @@
                 </tr>
             </thead>
             <tbody>
+    <!-- Loop through Categories question 12-->
                 @foreach (var product in Model.Products)
                 {
                     <tr>
