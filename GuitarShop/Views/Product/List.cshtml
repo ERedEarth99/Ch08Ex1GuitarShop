@@ -1,22 +1,22 @@
-﻿    <!-- Question 8 -->
+﻿    <!-- Question 8/17 -->
 @model GuitarShop.Models.ProductViewModel 
 
 <h1>Product List</h1>
 
 <div class="list-group">
-    <!-- "All" Category, question 9 -->
-    <a asp-controller="Product" asp-action="List" asp-route-id="All"
-       class="list-group-item @Model.CheckActiveCategory("All")">
-        All
-    </a>
+    <!-- "All" Category, question 18/19 -->
+    @if (Model.SelectedCategory == "All")
+    {
+        <a class="list-group-item active">All</a>
+    }
 
-    <!-- Loop through Categories question 10  & 11 -->
+    <!-- Loop through Categories question 20 -->
     @foreach (var category in Model.Categories)
     {
         <a asp-controller="Product" asp-action="List" asp-route-id="@category.CategoryID"
-           class="list-group-item @Model.CheckActiveCategory(category.CategoryID.ToString())">
-            @category.Name
-        </a>
+           class="list-group-item">@category.Name</a>
+    }
+    /a>
     }
 </div>
         </div>

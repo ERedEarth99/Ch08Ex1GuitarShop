@@ -24,6 +24,7 @@ namespace GuitarShop.Areas.Admin.Controllers
         {
             return RedirectToAction("List");
         }
+        // Question 16
 
         [Route("[area]/[controller]s/{id?}")]
         public IActionResult List(string id = "All")

@@ -11,7 +11,7 @@ namespace GuitarShop.Models
         public string CheckActiveCategory(string category) =>
         category == SelectedCategory ? "active" : "";
 
-    
     }
+
 
 }
