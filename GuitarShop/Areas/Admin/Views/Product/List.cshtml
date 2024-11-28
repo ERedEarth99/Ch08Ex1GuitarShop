@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿@model GuitarShop.Models.ProductListViewModel
 @{
     ViewBag.Title = "Product Manager";
 }
@@ -22,7 +22,6 @@
             }
         </ul>
     </div>
-
     <div class="col-sm-10">
         <table class="table table-bordered table-striped">
             <thead>
@@ -30,26 +29,23 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th></th>
-                    <th></th>
+                </tr>
             </thead>
             <tbody>
-                @foreach (var p in Model)
+                @foreach (var product in Model.Products)
                 {
                     <tr>
-                        <td>@p.Name</td>
-                        <td>@p.Price.ToString("C")</td>
+                        <td>@product.Name</td>
+                        <td>@product.Price.ToString("C")</td>
                         <td>
-                            <a asp-action="Update"
-                               asp-route-id="@p.ProductID">Update</a>
-                        </td>
-                        <td>
-                            <a asp-action="Delete"
-                               asp-route-id="@p.ProductID">Delete</a>
+                            <a asp-controller="Product" asp-action="Details"
+                               asp-route-id="@product.ProductID">View Details</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-        <a asp-action="Add" class="btn btn-primary">Add New Product</a>
     </div>
+
+
 </div>
