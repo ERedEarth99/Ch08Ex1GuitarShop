@@ -80,19 +80,23 @@ namespace GuitarShop.Areas.Admin.Controllers
             // bind product to AddUpdate view
             return View("AddUpdate", product);
         }
-
+        // Question 24
         [HttpPost]
         public IActionResult Update(Product product)
         {
             if (ModelState.IsValid)
             {
-                if (product.ProductID == 0)           // new product
+                // new product qustion 25
+                if (product.ProductID == 0) 
                 {
                     context.Products.Add(product);
+                    TempData["UserMessage"] = $"You just added the product {product.Name}.";
                 }
-                else                                  // existing product
+                // existing product
+                else 
                 {
                     context.Products.Update(product);
+                    TempData["UserMessage"] = $"You just updated the product {product.Name}.";
                 }
                 context.SaveChanges();
                 return RedirectToAction("List");
@@ -104,6 +108,7 @@ namespace GuitarShop.Areas.Admin.Controllers
                 return View("AddUpdate", product);
             }
         }
+
 
         [HttpGet]
         public IActionResult Delete(int id)

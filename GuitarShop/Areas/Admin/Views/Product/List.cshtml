@@ -32,6 +32,7 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Question 27 -->
                 @foreach (var product in Model.Products)
                 {
                     <tr>
@@ -43,6 +44,21 @@
                         </td>
                     </tr>
                 }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TempData Message -->
+    @{
+        string userMessage = TempData?["UserMessage"]?.ToString() ?? "";
+    }
+    @if (!string.IsNullOrEmpty(userMessage))
+    {
+        <div class="text-success">@userMessage</div>
+    }
+
+    <!-- Add New Product Button -->
+    <a asp-controller="Product" asp-action="Add" class="btn btn-primary">Add New Product</a>
             </tbody>
         </table>
     </div>
