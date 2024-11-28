@@ -32,7 +32,7 @@ namespace GuitarShop.Controllers
                     .Where(p => p.Category.Name == id)
                     .OrderBy(p => p.ProductID).ToList();
 
-            // Create and populate the ProductViewModel
+            // Create and populate the ProductViewModel for question 6
             var model = new ProductViewModel
             {
                 Categories = categories,
@@ -40,7 +40,7 @@ namespace GuitarShop.Controllers
                 SelectedCategory = id
             };
 
-            // Pass the view model to the view
+            // Pass the view model to the view for question 7
             return View(model);
         }
 
